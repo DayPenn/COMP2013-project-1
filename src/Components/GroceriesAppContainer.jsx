@@ -57,13 +57,20 @@ const [cart, setCart] = useState ([]);
 // in the state that has the same ID
 //
 ////////////////////////////////////////////////////
-// mode IMPORTANT HERE: reove to min 1 if in cart, min 0 otherwise
+// mode: remove to min 1 if in cart, min 0 otherwise
 ////////////////////////////////////////////////////
     const handleRemoveFromQuantity = (productID, mode) => {
         const newProductQuantity = productQuantity.map((prod) => {
-            if(prod.id === productID && prod.quantity>0){
-                return {...prod, quantity: /*old*/prod.quantity -1}
-            }
+           /* if(prod.id === productID && prod.quantity>0){
+                return {...prod, quantity: /*oldprod.quantity -1}*/
+            if(prod.id === productID){
+                const minQuantity = mode === "cart" ? 1 : 0; // cart min=1, otherwse min=0
+                if (prod.quantity > minQuantity) {
+                    return {...prod, quantity: prod.quantity -1}; // minus 1
+                }else{
+                    return {...prod, quantity: minQuantity}; // no change
+                }
+                }
             return prod;
         });
         setProductQuantity(newProductQuantity);
@@ -129,8 +136,20 @@ const handleRemoveFromCart = (cartItem) => {
             <p>{cart.length === 0 && "Cart is empty."}</p>
             <CartContainer 
                 cart={cart}
-                handleRemoveFromCart={handleRemoveFromCart}/>
+                handleRemoveFromCart={handleRemoveFromCart}
+                handleAddToQuantity={handleAddToQuantity}
+                handleRemoveFromQuantity={handleRemoveFromQuantity}/>
         </div>
     </div>
     );
+
+const handleEmptyCart = () => {
+    setCart([]); // empty array, same as beginning
+};
+
+let totalPrice = 0;
+for (let i = 0; i < cart.length; i++) {
+    totalPrice += cart[i].quantity * cart[i].currentPrice; // currentPrice=NO $, price=$tring
+}
+
 }

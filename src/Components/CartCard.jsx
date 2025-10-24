@@ -10,13 +10,17 @@
     
 REUSE same component for both ProductCard and CartCard components. */
 
+import QuantityCounter from "./QuantityCounter";
+
 export default function CartCard({
     id,
     productName,
     image, 
     quantity, 
     currentPrice,
-    handleRemoveFromCart
+    handleRemoveFromCart, 
+    handleAddToQuantity,
+    handleRemoveFromQuantity
 }){
     return (
         <div className="CartCard">
@@ -24,9 +28,16 @@ export default function CartCard({
             <h2>{productName}</h2>
             <p>Quantity: {quantity}</p>
             <p>Total Price: ${(quantity * currentPrice).toFixed(2)}</p>
+
+            <QuantityCounter
+                productQuantity={{id, quantity, currentPrice}}
+                handleAddToQuantity={handleAddToQuantity}
+                handleRemoveFromQuantity={handleRemoveFromQuantity}
+                id={id}
+                mode="cart"/>
+
             <button onClick={() => {
-                handleRemoveFromCart({id, product, quantity, currentPrice}) // <-- from lecture
-                // handleRemoveFromCart({id})
+                handleRemoveFromCart({id, quantity, currentPrice}) // <-- from lecture
             }}
             >Remove Item</button>
         </div>

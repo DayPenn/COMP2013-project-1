@@ -14,6 +14,10 @@ import CartCard from "./CartCard";
 export default function CartContainer({
     cart,
     handleRemoveFromCart,
+    handleAddToQuantity,
+    handleRemoveFromQuantity, 
+    handleEmptyCart,
+    totalPrice
 }) {
     return (
         <div className="CartContainer">
@@ -21,8 +25,17 @@ export default function CartContainer({
             <CartCard 
             key={item.id} 
             {...item}
-            handleRemoveFromCart={handleRemoveFromCart}/>
+            handleRemoveFromCart={handleRemoveFromCart}
+            handleAddToQuantity={handleAddToQuantity}
+            handleRemoveFromQuantity={handleRemoveFromQuantity}/>
             ))}
+    {/*TURNARY gets confusing here, replaced with short circuit*/}
+            {cart.length > 0 && {/*<--if left=TRUE, do RIGHT side, too*/}
+                (<div className="CartButtons">
+                    <button onClick={handleEmptyCart}>EMPTY Cart</button>
+                    <button>BUY (Total: ${totalPrice.toFixed(2)})</button>
+                </div>)
+            }
         </div>
     );
 }
