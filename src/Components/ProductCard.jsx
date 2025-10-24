@@ -1,12 +1,12 @@
 import QuantityCounter from "./QuantityCounter";
 
 export default function ProductCard({
-  productQuantity, 
-  image, 
-  productName, 
-  handleAddToQuantity, 
+  productQuantity,
+  image,
+  productName,
+  handleAddToQuantity,
   handleRemoveFromQuantity,
-  handleAddToCart
+  handleAddToCart,
 }) {
   return (
     <div className="ProductCard">
@@ -18,17 +18,18 @@ export default function ProductCard({
         {(productQuantity.quantity * productQuantity.currentPrice).toFixed(2)}
       </p>
       <div className="ProductQuantityDiv">
-          <QuantityCounter 
-            productQuantity={productQuantity}  /*STATE*/
-            handleAddToQuantity={handleAddToQuantity}
-            handleRemoveFromQuantity={handleRemoveFromQuantity}
-            id={productQuantity.id}
-            mode="product"
-          />
+        <QuantityCounter
+          productQuantity={productQuantity} /*STATE*/
+          handleAddToQuantity={handleAddToQuantity}
+          handleRemoveFromQuantity={handleRemoveFromQuantity}
+          id={productQuantity.id}
+          mode="product"
+        />
       </div>
-    <button onClick={() => handleAddToCart(productQuantity)}> Add to Cart</button>
+      <button onClick={() => handleAddToCart(productQuantity)}>
+        {" "}
+        Add to Cart
+      </button>
     </div>
   );
 }
-
-

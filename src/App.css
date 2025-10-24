@@ -47,7 +47,7 @@
 }
 
 .CartContainer {
-  width: 25%;
+  width: 35%;
   justify-content: center;
 
   /* position: sticky; */
@@ -63,7 +63,7 @@
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  /* flex-wrap: wrap; */
+  flex-wrap: wrap;
   border: 2px wheat solid;
   border-radius: 10px;
   margin: 10px;
@@ -78,7 +78,7 @@
 }
 
 .ProductsContainer {
-  width: 75%;
+  width: 88%;
   max-width: 800px;
   display: flex;
   flex-wrap: wrap;
@@ -147,7 +147,7 @@ img {
   background-color: rgb(190, 0, 0);
 }
 
-#BuyButton {
+.BuyButton {
   background-color: green;
   width: 50%;
 }
