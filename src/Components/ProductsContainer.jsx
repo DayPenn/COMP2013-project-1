@@ -1,7 +1,3 @@
-/* 3. ProductsContainer is a presentation component 
-    that renders all the product cards from the data 
-    passed from the parent component. */
-
 import ProductCard from "./ProductCard";
 
 export default function ProductsContainer({ 

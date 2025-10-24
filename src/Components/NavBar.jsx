@@ -1,14 +1,10 @@
-/* 2. NavBar is the top presentation container 
-    that displays the app’s title, a username greeter, 
-    and a cart icon that indicates whether the cart is full, 
-    shown by the red dot over the cart icon or empty. 
+/*
 Z's CSS Class Names:
 .NavBar
 .NavDiv
 .NavTitle
 .NavCart
 .NavUser
-
 */
 
 export default function NavBar({cart, emptyCartIMG, fullCartIMG}) {

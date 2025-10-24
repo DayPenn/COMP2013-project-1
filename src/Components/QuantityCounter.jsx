@@ -1,12 +1,3 @@
-/*7. Quantity Counter is a presentational component 
-    that displays the number of items for each product. 
-    It has a button to increase the amount and 
-    another to decrease the number of products.  
-    
-    NOTE: will accept both button FCTNs, add / remove
-    and the state
-    */
-
 export default function QuantityCounter({
     productQuantity, /*state*/
     handleAddToQuantity, 
@@ -16,11 +7,13 @@ export default function QuantityCounter({
 }) {
     return (
         <div className="ProductQuantityDiv">
-        <div>
-            <button onClick={() => handleRemoveFromQuantity(id, mode)}>-</button>
-            <span>{productQuantity.quantity}</span>
-            <button onClick={() => handleAddToQuantity(id, mode)}>+</button>
-        </div>
+            <div className="counter-container">
+                <button onClick={() => 
+                    handleRemoveFromQuantity(id, mode)}>-</button>
+                <span>{productQuantity.quantity}</span>
+                <button onClick={() => 
+                    handleAddToQuantity(id, mode)}>+</button>
+            </div>
         </div>
     );
 }
