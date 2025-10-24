@@ -10,3 +10,25 @@
     
 REUSE same component for both ProductCard and CartCard components. */
 
+export default function CartCard({
+    id,
+    productName,
+    image, 
+    quantity, 
+    currentPrice,
+    handleRemoveFromCart
+}){
+    return (
+        <div className="CartCard">
+            <img src={image} alt="" height="100px" />
+            <h2>{productName}</h2>
+            <p>Quantity: {quantity}</p>
+            <p>Total Price: ${(quantity * currentPrice).toFixed(2)}</p>
+            <button onClick={() => {
+                handleRemoveFromCart({id, product, quantity, currentPrice}) // <-- from lecture
+                // handleRemoveFromCart({id})
+            }}
+            >Remove Item</button>
+        </div>
+    );
+}

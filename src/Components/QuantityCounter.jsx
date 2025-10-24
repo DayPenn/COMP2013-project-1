@@ -3,7 +3,7 @@
     It has a button to increase the amount and 
     another to decrease the number of products.  
     
-    NOTE: will take both buttons, add / remove
+    NOTE: will accept both button FCTNs, add / remove
     and the state
     */
 
@@ -12,7 +12,7 @@ export default function QuantityCounter({
     handleAddToQuantity, 
     handleRemoveFromQuantity,
     id, /* which card we are working on*/
-    mode, /* product=>baseline 0, cart=> baseline 1 */
+    mode, /* product=> min= 0, cart=> baseline 1 */
 }) {
     return (
         <div className="ProductQuantityDiv">
