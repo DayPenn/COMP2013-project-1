@@ -9,19 +9,22 @@ Z's CSS Class Names:
 .NavCart
 .NavUser
 
-
-CART images in assets 
-=> use turnary::(cart > 0)?redDot : emptyCart
 */
 
-export default function NavBar() {
+export default function NavBar({cart, emptyCartIMG, fullCartIMG}) {
     return (
         <div className="NavBar">
             <div className="NavDiv">
                 <div className="NavUser">Hello, Username!</div>
                 <div className="NavTitle"><h1>Grocery APP</h1>
                 <div className="NavCart">
-                    {/* put cart image options from assets empty/full */}
+                    <img
+                        src={cart.length === 0 
+                            ? emptyCartIMG 
+                            : fullCartIMG}
+                        alt=""
+                        height="50px"
+                    />
                 </div>
                 </div>
             </div>            

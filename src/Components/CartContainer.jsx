@@ -14,23 +14,24 @@ import CartCard from "./CartCard";
 export default function CartContainer({
     cart,
     handleRemoveFromCart,
-    handleAddToQuantity,
-    handleRemoveFromQuantity, 
+    handleAddToQuantityInCart,
+    handleRemoveFromQuantityInCart, 
     handleEmptyCart,
     totalPrice
 }) {
     return (
         <div className="CartContainer">
             {cart.map((item) => (
-            <CartCard 
-            key={item.id} 
-            {...item}
-            handleRemoveFromCart={handleRemoveFromCart}
-            handleAddToQuantity={handleAddToQuantity}
-            handleRemoveFromQuantity={handleRemoveFromQuantity}/>
+                <CartCard 
+                    key={item.id} 
+                    {...item}
+                    handleRemoveFromCart={handleRemoveFromCart}
+                    handleAddToQuantity={handleAddToQuantityInCart} // specifying -from CART
+                    handleRemoveFromQuantity={handleRemoveFromQuantityInCart} // -from cart
+                />
             ))}
     {/*TURNARY gets confusing here, replaced with short circuit*/}
-            {cart.length > 0 && {/*<--if left=TRUE, do RIGHT side, too*/}
+            {cart.length > 0 && /*<--if left=TRUE, do RIGHT side, too*/
                 (<div className="CartButtons">
                     <button onClick={handleEmptyCart}>EMPTY Cart</button>
                     <button>BUY (Total: ${totalPrice.toFixed(2)})</button>
